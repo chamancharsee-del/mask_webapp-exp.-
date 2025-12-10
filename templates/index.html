@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mask Detector</title>
+
+    <style>
+        body {
+            background: #000;
+            margin: 0;
+            overflow: hidden;
+            font-family: Orbitron, sans-serif;
+            color: white;
+        }
+
+        #container {
+            position: relative;
+            width: 800px;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        video, canvas {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        #status-box {
+            margin: 20px auto;
+            width: 200px;
+            text-align: center;
+            background: #444;
+            padding: 12px;
+            border-radius: 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="status-box">
+            <span id="status">Starting Camera...</span>
+        </div>
+
+        <video id="video" autoplay playsinline></video>
+        <canvas id="hudCanvas"></canvas>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
