@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mask Detector HUD</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #030b14;
+            font-family: 'Segoe UI', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #00eaff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 25px;
+            background: rgba(0, 30, 60, 0.25);
+            border-radius: 18px;
+            box-shadow: 0 0 35px rgba(0, 180, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 150, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #00eaff;
+            letter-spacing: 1.5px;
+        }
+
+        .hud-status {
+            width: 220px;
+            padding: 12px;
+            margin: 12px auto;
+            background: rgba(0, 40, 60, 0.6);
+            border-radius: 25px;
+            color: #00c8ff;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 0 12px rgba(0, 180, 255, 0.4);
+            transition: 0.3s ease;
+        }
+
+        .hud-box {
+            position: relative;
+            width: 640px;
+            height: 480px;
+            border-radius: 12px;
+            border: 2px solid rgba(0, 200, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+        }
+
+        .footer {
+            margin-top: 18px;
+            opacity: 0.6;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>IRON-MAN HUD MASK DETECTOR</h1>
+
+    <div id="status-box" class="hud-status">Starting Camera...</div>
+
+    <div class="hud-box">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="overlay" width="640" height="480"></canvas>
+    </div>
+
+    <p class="footer">HUD AI • Mediapipe • ONNX Runtime</p>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
